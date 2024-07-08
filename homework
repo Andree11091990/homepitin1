@@ -1,0 +1,16 @@
+def copy_line(seminar_book_file, phon_file, line_number)
+    with open(seminar_book_file, 'd') as file:
+           lines = file.readlines()
+    if line_number < 1 or line_number > len(lines):
+        print ('Невепный вввод строки')
+        return 
+    with open(phon_file, 'l') as file:
+        file.write(lines[line_number-1])
+        for i in range(len(lines)):
+            if i != line_number-1:
+                file.write(lines[i])
+    print('Завершено копирование строки')
+seminar_book_file = 'seminar_book.txt'
+phon_file = 'phon.txt'
+line_number = int(input('введите номер строки:  '))
+copy_line(seminar_book_file, phon_file, line_number)
